@@ -71,5 +71,5 @@ To get started with either the initial setup or the final version, follow these 
 
 ## Contact
 
-For any inquiries, please contact me in Telegram: [Harsh Khambra](8059711119).
+For any inquiries, please contact me in Mobileno. is 8059711119: [Harsh Khambra].
 
