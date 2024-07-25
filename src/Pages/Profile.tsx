@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
-import Hamster from '../icons/Hamster';
 import { binanceLogo, dollarCoin, hamsterCoin } from '../images';
 import Info from '../icons/Info';
 import Settings from '../icons/Settings';
@@ -8,17 +7,22 @@ import Mine from '../icons/Mine';
 import Friends from '../icons/Friends';
 import Coins from '../icons/Coins';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDollarSign, faArrowDown, faArrowUp, faUser, faTrophy, faBell, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown, faArrowUp, faUser, faTrophy, faBell, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const Profile: React.FC = () => {
   const [levelIndex, setLevelIndex] = useState(0);
   const [profitPerHour, setProfitPerHour] = useState(0);
-  const [points, setPoints] = useState(0);
+  const [, setPoints] = useState(0);
   const [cardName, setCardName] = useState('Harsh Khambra');
-  const [amount, setAmount] = useState(1000); // Example amount
+  const [amount, setAmount] = useState(1000);
 
   useEffect(() => {
-    // Fetch or compute data here
+    // Example initialization
+    setLevelIndex(1);
+    setProfitPerHour(50);
+    setPoints(100);
+    setCardName('John Doe');
+    setAmount(1500);
   }, []);
 
   const levelNames = ['Beginner', 'Intermediate', 'Advanced'];
@@ -33,10 +37,6 @@ const Profile: React.FC = () => {
 
   const formatAmount = (amount: number) => {
     return `$${amount.toFixed(2)}`;
-  };
-
-  const handleCardClick = () => {
-    console.log('Card clicked');
   };
 
   const handleWithdraw = () => {
@@ -136,47 +136,37 @@ const Profile: React.FC = () => {
                   {/* Achievements and Notifications */}
                   <div className="flex justify-between gap-4">
                     {/* Achievements Section */}
-                    <div className="bg-[#272a2f] p-4 rounded-lg w-1/2 transition-transform transform hover:scale-105 duration-300 ease-in-out">
-                      <p className="text-white text-lg font-semibold flex items-center">
-                        <FontAwesomeIcon icon={faTrophy} className="text-[#d4d4d4] text-xl mr-2" />
-                        Achievements
-                      </p>
-                      <ul className="text-[#85827d] list-disc ml-4 mt-2">
-                        <li>Completed 100 tasks</li>
-                        <li>Reached Level 5</li>
-                      </ul>
+                    <div className="bg-[#272a2f] p-4 rounded-lg flex items-center space-x-2 flex-1">
+                      <FontAwesomeIcon icon={faTrophy} className="text-[#f1c40f] text-xl" />
+                      <div className="flex flex-col">
+                        <p className="text-white text-lg font-semibold">Achievements</p>
+                        <p className="text-[#85827d] text-sm">Check your achievements</p>
+                      </div>
                     </div>
 
                     {/* Notifications Section */}
-                    <div className="bg-[#272a2f] p-4 rounded-lg w-1/2 transition-transform transform hover:scale-105 duration-300 ease-in-out">
-                      <p className="text-white text-lg font-semibold flex items-center">
-                        <FontAwesomeIcon icon={faBell} className="text-[#d4d4d4] text-xl mr-2" />
-                        Notifications
-                      </p>
-                      <ul className="text-[#85827d] list-disc ml-4 mt-2">
-                        <li>New feature update available</li>
-                        <li>Scheduled maintenance on Friday</li>
-                      </ul>
+                    <div className="bg-[#272a2f] p-4 rounded-lg flex items-center space-x-2 flex-1">
+                      <FontAwesomeIcon icon={faBell} className="text-[#e67e22] text-xl" />
+                      <div className="flex flex-col">
+                        <p className="text-white text-lg font-semibold">Notifications</p>
+                        <p className="text-[#85827d] text-sm">View your notifications</p>
+                      </div>
                     </div>
                   </div>
 
                   {/* Transaction Button */}
-                  <div className="flex justify-center mt-4">
-                    <button
-                      className="bg-[#333] text-white py-2 px-6 rounded-lg flex items-center space-x-2 hover:bg-[#444] transition-colors duration-300 ease-in-out"
-                      onClick={handleTransaction}
-                    >
-                      <FontAwesomeIcon icon={faArrowLeft} className="text-[#f39c12]" />
-                      <span>Transaction</span>
-                    </button>
-                  </div>
+                  <button
+                    className="bg-[#1c1f24] text-white py-2 px-4 rounded-lg mt-4 w-full flex items-center justify-center hover:bg-[#272a2f] transition-colors duration-300 ease-in-out"
+                    onClick={handleTransaction}
+                  >
+                    <FontAwesomeIcon icon={faArrowLeft} className="text-[#3498db]" />
+                    <span className="ml-2">Make Transaction</span>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Bottom fixed div */}
         <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-[calc(100%-2rem)] max-w-xl bg-[#272a2f] flex justify-around items-center z-50 rounded-3xl text-xs py-2">
           <div className="text-center text-[#85827d] w-1/5">
             <img src={binanceLogo} alt="Exchange" className="w-8 h-8 mx-auto" />
