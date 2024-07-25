@@ -9,6 +9,7 @@ import Coins from '../icons/Coins';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown, faArrowUp, faUser, faTrophy, faBell, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+
 const Profile: React.FC = () => {
   const [levelIndex, setLevelIndex] = useState(0);
   const [profitPerHour, setProfitPerHour] = useState(0);
@@ -53,6 +54,7 @@ const Profile: React.FC = () => {
   const handleBack = () => {
     navigate('/'); // Navigate to the root path
   };
+  
   return (
     <div className="bg-black flex justify-center min-h-screen">
       <div className="w-full max-w-xl bg-black text-white h-full font-bold flex flex-col">
@@ -169,9 +171,10 @@ const Profile: React.FC = () => {
             </div>
           </div>
         </div>
+
         <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-[calc(100%-2rem)] max-w-xl bg-[#272a2f] flex justify-around items-center z-50 rounded-3xl text-xs py-2">
           <div className="text-center text-[#85827d] w-1/5">
-            <img src={binanceLogo} alt="Exchange" className="w-8 h-8 mx-auto" onClick={handleBack} />
+            <img src={binanceLogo} alt="Exchange" className="w-8 h-8 mx-auto cursor-pointer" onClick={handleBack} />
             <p className="mt-1">Home</p>
           </div>
           <div className="text-center text-[#85827d] w-1/5">
